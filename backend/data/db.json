@@ -1,0 +1,173 @@
+{
+  "content": {
+    "bandName": "Pagode do Val",
+    "slogan": "O melhor do pagode em Parnaiba, com show elegante e energia contagiante.",
+    "location": "Parnaiba, Piaui, Brasil",
+    "description": "Um site pensado para apresentar a banda, destacar a agenda e facilitar a captacao de novos shows com atendimento rapido pelo WhatsApp.",
+    "longDescription": "O Pagode do Val mistura classicos do pagode, releituras atuais e presenca de palco marcante. A proposta comercial e atender com profissionalismo desde a primeira conversa, transmitindo confianca e organizacao.",
+    "musicalStyle": [
+      "Pagode",
+      "Samba",
+      "Roda de samba",
+      "Pop nacional",
+      "MPB"
+    ],
+    "whatsappNumber": "5586999999999",
+    "instagramUrl": "https://www.instagram.com/pagodedoval.oficial?igsh=MnU1NWs3YnNpaG14",
+    "heroImage": "/band-hero.svg",
+    "highlightNumbers": [
+      {
+        "label": "Eventos realizados",
+        "value": "120+"
+      },
+      {
+        "label": "Cidades atendidas",
+        "value": "18"
+      },
+      {
+        "label": "Avaliacao media",
+        "value": "4.9"
+      }
+    ],
+    "gallery": [
+      {
+        "id": "gallery-1",
+        "title": "Show para aniversario premium",
+        "image": "/band-hero.svg",
+        "description": "Atmosfera elegante para celebracoes com repertorio romantico e animado."
+      },
+      {
+        "id": "gallery-2",
+        "title": "Evento corporativo",
+        "image": "/band-hero.svg",
+        "description": "Apresentacao com postura profissional para recepcoes, confraternizacoes e lancamentos."
+      },
+      {
+        "id": "gallery-3",
+        "title": "Pagode ao vivo",
+        "image": "/band-hero.svg",
+        "description": "Performance intensa, interacao com o publico e identidade visual sofisticada."
+      }
+    ],
+    "videos": [
+      {
+        "id": "video-1",
+        "title": "Showreel da banda",
+        "embedUrl": "https://www.youtube.com/embed/5qap5aO4i9A"
+      },
+      {
+        "id": "video-2",
+        "title": "Pagode do Val em Araioses ao vivo",
+        "embedUrl": "https://www.youtube.com/embed/EWWVmdANJhM?start=19&list=RDEWWVmdANJhM"
+      }
+    ],
+    "testimonials": [
+      {
+        "id": "testimonial-1",
+        "name": "Carla Menezes",
+        "role": "Noiva",
+        "quote": "A banda deixou nosso casamento elegante e ao mesmo tempo muito animado. Atendimento impecavel do inicio ao fim.",
+        "rating": 5
+      },
+      {
+        "id": "testimonial-2",
+        "name": "Rodrigo Lopes",
+        "role": "Aniversariante",
+        "quote": "Todo mundo elogiou o repertorio e a energia. Foi a melhor escolha para a festa.",
+        "rating": 5
+      },
+      {
+        "id": "testimonial-3",
+        "name": "Marina Torres",
+        "role": "RH corporativo",
+        "quote": "Pontuais, organizados e com um show que combinou perfeitamente com o nosso evento empresarial.",
+        "rating": 5
+      }
+    ],
+    "budgetPackages": [
+      {
+        "id": "package-1",
+        "name": "Essencial",
+        "priceLabel": "A partir de R$ 1.500",
+        "description": "Formato ideal para eventos menores e ambientes intimistas.",
+        "features": [
+          "Formacao enxuta",
+          "Set de 2 horas",
+          "Atendimento local"
+        ]
+      },
+      {
+        "id": "package-2",
+        "name": "Premium",
+        "priceLabel": "A partir de R$ 2.800",
+        "description": "Pacote equilibrado para aniversarios, casamentos e confraternizacoes.",
+        "features": [
+          "Formacao completa",
+          "Set de 3 horas",
+          "Repertorio personalizado"
+        ]
+      },
+      {
+        "id": "package-3",
+        "name": "Experience",
+        "priceLabel": "Sob consulta",
+        "description": "Proposta completa para grandes eventos ou contratacoes corporativas.",
+        "features": [
+          "Show expandido",
+          "Briefing especial",
+          "Apoio comercial dedicado"
+        ]
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "event-1",
+      "title": "Roda de Pagode no Litoral",
+      "date": "2026-05-18",
+      "city": "Parnaiba",
+      "venue": "Espaco Beira Rio",
+      "status": "approved"
+    },
+    {
+      "id": "event-2",
+      "title": "Pagode Sunset",
+      "date": "2026-06-07",
+      "city": "Luis Correia",
+      "venue": "Arena do Sol",
+      "status": "approved"
+    },
+    {
+      "id": "event-3",
+      "title": "Show Particular",
+      "date": "2026-06-21",
+      "city": "Parnaiba",
+      "venue": "Evento fechado",
+      "status": "approved"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "8da4e3cd-7ab4-4b5f-9bbe-f4cf356f8527",
+      "clientName": "Cliente Teste",
+      "phone": "86988887777",
+      "eventDate": "2026-05-30",
+      "eventLocation": "Parnaiba - Evento de teste",
+      "eventType": "Aniversario",
+      "message": "Simulacao de agendamento para validar aprovacao no admin.",
+      "status": "approved",
+      "createdAt": "2026-04-24T00:47:13.313Z"
+    },
+    {
+      "id": "8fdceb10-d7a0-4f89-ad8a-d018c22467fd",
+      "clientName": "Teste Manual Aprovar",
+      "phone": "86977776666",
+      "eventDate": "2026-06-15",
+      "eventLocation": "Parnaiba - Teste para clicar aprovar",
+      "eventType": "Aniversario",
+      "message": "Pedido de teste para voce apertar o botao Aprovar no admin.",
+      "status": "approved",
+      "createdAt": "2026-04-24T00:54:54.968Z"
+    }
+  ]
+}

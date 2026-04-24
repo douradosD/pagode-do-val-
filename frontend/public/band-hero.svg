@@ -1,0 +1,23 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#090909"/>
+  <circle cx="225" cy="180" r="170" fill="#FBBF24" fill-opacity="0.2"/>
+  <circle cx="1020" cy="150" r="120" fill="#FBBF24" fill-opacity="0.18"/>
+  <circle cx="1000" cy="780" r="180" fill="#FBBF24" fill-opacity="0.12"/>
+  <rect x="74" y="88" width="1052" height="724" rx="36" stroke="#FBBF24" stroke-opacity="0.3" stroke-width="4"/>
+  <text x="100" y="190" fill="#FFF7E6" font-family="Arial, sans-serif" font-size="46" font-weight="700">Pagode do Val</text>
+  <text x="100" y="245" fill="#FBBF24" font-family="Arial, sans-serif" font-size="22" letter-spacing="6">PARNAIBA . PIAUI . BRASIL</text>
+  <text x="100" y="330" fill="#FFFFFF" fill-opacity="0.84" font-family="Arial, sans-serif" font-size="74" font-weight="800">Ritmo elegante,</text>
+  <text x="100" y="410" fill="#FFFFFF" fill-opacity="0.84" font-family="Arial, sans-serif" font-size="74" font-weight="800">energia contagiante.</text>
+  <text x="100" y="498" fill="#E5E7EB" font-family="Arial, sans-serif" font-size="28">Site conceito para apresentacao da banda e captacao de eventos.</text>
+  <rect x="100" y="590" width="430" height="118" rx="28" fill="#111111" stroke="#FBBF24" stroke-opacity="0.32"/>
+  <text x="136" y="645" fill="#FBBF24" font-family="Arial, sans-serif" font-size="22" font-weight="700">Shows particulares e corporativos</text>
+  <text x="136" y="682" fill="#FFFFFF" fill-opacity="0.75" font-family="Arial, sans-serif" font-size="20">Agenda inteligente, orcamento rapido e WhatsApp integrado</text>
+  <circle cx="868" cy="455" r="120" fill="#0F0F0F" stroke="#FBBF24" stroke-opacity="0.4" stroke-width="4"/>
+  <circle cx="962" cy="490" r="86" fill="#0F0F0F" stroke="#FBBF24" stroke-opacity="0.4" stroke-width="4"/>
+  <circle cx="768" cy="490" r="86" fill="#0F0F0F" stroke="#FBBF24" stroke-opacity="0.4" stroke-width="4"/>
+  <rect x="752" y="350" width="232" height="26" rx="13" fill="#FBBF24" fill-opacity="0.75"/>
+  <rect x="820" y="306" width="96" height="42" rx="21" fill="#FBBF24" fill-opacity="0.75"/>
+  <rect x="867" y="582" width="4" height="82" fill="#FBBF24" fill-opacity="0.65"/>
+  <rect x="756" y="586" width="224" height="20" rx="10" fill="#FBBF24" fill-opacity="0.18"/>
+  <rect x="770" y="640" width="196" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.18"/>
+</svg>
