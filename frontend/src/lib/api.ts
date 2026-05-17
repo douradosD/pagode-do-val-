@@ -7,7 +7,7 @@ import type {
   PublicSchedule,
 } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, {

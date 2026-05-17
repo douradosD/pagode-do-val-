@@ -36,13 +36,24 @@ const defaultData = {
 const db = new Low(adapter, defaultData);
 const app = express();
 const port = Number(process.env.PORT || 4000);
-const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+const frontendOrigins = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 const adminPassword = process.env.ADMIN_PASSWORD || 'pagode123';
 const adminToken = process.env.ADMIN_TOKEN || 'pagode-do-val-admin-token';
 
 app.use(
   cors({
-    origin: frontendUrl,
+    origin(origin, callback) {
+      // Permite chamadas sem origem explicita, como health checks e ferramentas server-to-server.
+      if (!origin || frontendOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error('Origem nao autorizada pelo CORS.'));
+    },
   }),
 );
 app.use(express.json());
