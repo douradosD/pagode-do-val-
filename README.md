@@ -39,6 +39,55 @@ npm run dev
 - Back-end: Render, Railway ou VPS simples com Node.js
 - Para producao, substitua o arquivo JSON por banco real como Firebase, Supabase ou PostgreSQL
 
+## Deploy recomendado: Vercel + Render
+
+### Front-end na Vercel
+
+1. Entre na Vercel com sua conta GitHub.
+2. Importe o repositorio `douradosD/pagode-do-val-`.
+3. Em `Root Directory`, escolha `frontend`.
+4. Adicione a variavel `VITE_API_URL` com a URL publica do backend, por exemplo:
+
+```env
+VITE_API_URL=https://seu-backend.onrender.com/api
+```
+
+5. Publique o projeto.
+
+O arquivo `frontend/vercel.json` ja foi adicionado para evitar erro 404 em rotas como `/admin`.
+
+### Back-end no Render
+
+1. Entre no Render com sua conta GitHub.
+2. Crie um `Web Service` apontando para este mesmo repositorio.
+3. Se preferir, use o arquivo `render.yaml` da raiz como base.
+4. Configure:
+   - `Root Directory`: `backend`
+   - `Build Command`: `npm install`
+   - `Start Command`: `npm start`
+
+### Variaveis do backend no Render
+
+```env
+FRONTEND_URLS=http://localhost:5173,https://seu-site.vercel.app
+ADMIN_PASSWORD=pagode123
+ADMIN_TOKEN=pagode-do-val-admin-token
+```
+
+Depois de publicar, teste:
+
+- `https://seu-backend.onrender.com/api/health`
+
+Se responder `{ "ok": true }`, a API esta pronta.
+
+### Fechando a ligacao
+
+Depois que o Render gerar a URL da API:
+
+1. Volte na Vercel.
+2. Edite `VITE_API_URL` com a URL real do backend.
+3. Rode um novo deploy do front-end.
+
 ## Deploy no Netlify
 
 Para publicar o front-end no Netlify sem erro `Page not found`:

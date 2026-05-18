@@ -10,13 +10,21 @@ import type {
 const API_BASE = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE}${path}`, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(init?.headers ?? {}),
-    },
-  });
+  let response: Response;
+
+  try {
+    response = await fetch(`${API_BASE}${path}`, {
+      ...init,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(init?.headers ?? {}),
+      },
+    });
+  } catch {
+    throw new Error(
+      'Servidor indisponivel. Publique o backend separadamente e configure `VITE_API_URL` com a URL publica da API.',
+    );
+  }
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({ message: 'Erro inesperado.' }));

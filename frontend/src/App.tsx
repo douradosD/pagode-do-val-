@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { getContent, getPublicSchedule, createBooking } from './lib/api';
+import { fallbackContent, fallbackSchedule } from './lib/fallbackData';
 import { AdminPage } from './pages/AdminPage';
 import { HomePage } from './pages/HomePage';
 import { WhatsAppButton } from './components/WhatsAppButton';
@@ -17,24 +18,15 @@ function LoadingScreen() {
   );
 }
 
-function ErrorScreen({ message }: { message: string }) {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-[#080808] px-6 text-white">
-      <div className="max-w-lg rounded-[2rem] border border-rose-400/30 bg-rose-400/10 p-8 text-center">
-        <h1 className="text-2xl font-bold">Nao foi possivel carregar o sistema</h1>
-        <p className="mt-4 text-sm leading-7 text-rose-100">{message}</p>
-      </div>
-    </div>
-  );
-}
-
 function AppRoutes({
   content,
   schedule,
+  serviceNotice,
   onCreateBooking,
 }: {
   content: BandContent;
   schedule: PublicSchedule;
+  serviceNotice: string | null;
   onCreateBooking: (payload: BookingPayload) => Promise<BookingResponse>;
 }) {
   return (
@@ -44,7 +36,12 @@ function AppRoutes({
           path="/"
           element={
             <>
-              <HomePage content={content} schedule={schedule} onCreateBooking={onCreateBooking} />
+              <HomePage
+                content={content}
+                schedule={schedule}
+                serviceNotice={serviceNotice}
+                onCreateBooking={onCreateBooking}
+              />
               <WhatsAppButton phone={content.whatsappNumber} />
             </>
           }
@@ -59,7 +56,7 @@ function AppRoutes({
 export default function App() {
   const [content, setContent] = useState<BandContent | null>(null);
   const [schedule, setSchedule] = useState<PublicSchedule | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [serviceNotice, setServiceNotice] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -69,9 +66,16 @@ export default function App() {
         if (!active) return;
         setContent(contentResponse);
         setSchedule(scheduleResponse);
+        setServiceNotice(null);
       } catch (err) {
         if (!active) return;
-        setError(err instanceof Error ? err.message : 'Erro ao carregar informacoes iniciais.');
+        setContent(fallbackContent);
+        setSchedule(fallbackSchedule);
+        setServiceNotice(
+          err instanceof Error
+            ? `${err.message} O site abriu com dados de demonstracao enquanto o servidor e ajustado.`
+            : 'Servidor indisponivel. O site abriu com dados de demonstracao enquanto o servidor e ajustado.',
+        );
       }
     }
 
@@ -85,11 +89,18 @@ export default function App() {
     const response = await createBooking(payload);
     const updatedSchedule = await getPublicSchedule();
     setSchedule(updatedSchedule);
+    setServiceNotice(null);
     return response;
   }
 
-  if (error) return <ErrorScreen message={error} />;
   if (!content || !schedule) return <LoadingScreen />;
 
-  return <AppRoutes content={content} schedule={schedule} onCreateBooking={handleCreateBooking} />;
+  return (
+    <AppRoutes
+      content={content}
+      schedule={schedule}
+      serviceNotice={serviceNotice}
+      onCreateBooking={handleCreateBooking}
+    />
+  );
 }

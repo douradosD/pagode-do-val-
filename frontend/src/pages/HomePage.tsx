@@ -21,6 +21,7 @@ import type { BandContent, BookingPayload, BookingResponse, PublicSchedule } fro
 interface HomePageProps {
   content: BandContent;
   schedule: PublicSchedule;
+  serviceNotice?: string | null;
   onCreateBooking: (payload: BookingPayload) => Promise<BookingResponse>;
 }
 
@@ -97,7 +98,7 @@ function getBudgetHint(eventType: string) {
   }
 }
 
-export function HomePage({ content, schedule, onCreateBooking }: HomePageProps) {
+export function HomePage({ content, schedule, serviceNotice, onCreateBooking }: HomePageProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState<BookingPayload>({
     clientName: '',
@@ -216,6 +217,12 @@ export function HomePage({ content, schedule, onCreateBooking }: HomePageProps) 
       </div>
 
       <main>
+        {serviceNotice ? (
+          <section className="border-b border-amber-400/20 bg-amber-400/10">
+            <div className="mx-auto max-w-7xl px-6 py-4 text-sm leading-7 text-amber-100">{serviceNotice}</div>
+          </section>
+        ) : null}
+
         <section id="inicio" className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(251,191,36,0.22),_transparent_38%),linear-gradient(135deg,_rgba(255,255,255,0.04),_transparent_55%)]" />
           <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
@@ -492,7 +499,7 @@ export function HomePage({ content, schedule, onCreateBooking }: HomePageProps) 
               <div className="mt-8 rounded-[2rem] border border-white/10 bg-black/40 p-6">
                 <div className="flex items-center gap-3 text-slate-300">
                   <Phone className="h-5 w-5 text-amber-300" />
-                    <span>Contato para shows: {formatPhone(content.whatsappNumber)}</span>
+                  <span>Contato para shows: {formatPhone(content.whatsappNumber)}</span>
                 </div>
                 <div className="mt-4 flex items-center gap-3 text-slate-300">
                   <Instagram className="h-5 w-5 text-amber-300" />
