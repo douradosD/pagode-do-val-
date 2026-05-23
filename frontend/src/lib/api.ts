@@ -32,15 +32,18 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let response: Response;
   const controller = new AbortController();
   const timeoutId = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const headers = new Headers(init?.headers);
+
+  // Keep public GET requests "simple" to avoid an extra CORS preflight round-trip.
+  if (init?.body && !(init.body instanceof FormData) && !headers.has('Content-Type')) {
+    headers.set('Content-Type', 'application/json');
+  }
 
   try {
     response = await fetch(`${API_BASE}${path}`, {
       ...init,
       signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        ...(init?.headers ?? {}),
-      },
+      headers,
     });
   } catch {
     throw new Error(
