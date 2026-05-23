@@ -11,7 +11,7 @@ export const fallbackContent: BandContent = {
     musicalStyle: ['Pagode', 'Samba', 'Roda de samba', 'Pop nacional', 'MPB'],
     whatsappNumber: '5586994581506',
     instagramUrl: 'https://www.instagram.com/pagodedoval.oficial?igsh=MnU1NWs3YnNpaG14',
-    heroImage: '/band-hero.svg',
+    heroImage: '/pagode-cover.jpg',
     highlightNumbers: [
         { label: 'Eventos realizados', value: '120+' },
         { label: 'Cidades atendidas', value: '18' },
