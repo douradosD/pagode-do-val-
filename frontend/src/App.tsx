@@ -7,6 +7,13 @@ import { HomePage } from './pages/HomePage';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import type { BandContent, BookingPayload, BookingResponse, PublicSchedule } from './types';
 
+function mergeContentWithFallback(content: BandContent): BandContent {
+  return {
+    ...content,
+    heroImage: content.heroImage === '/band-hero.svg' ? fallbackContent.heroImage : content.heroImage,
+  };
+}
+
 function AppRoutes({
   content,
   schedule,
@@ -53,7 +60,7 @@ export default function App() {
       try {
         const [contentResponse, scheduleResponse] = await Promise.all([getContent(), getPublicSchedule()]);
         if (!active) return;
-        setContent(contentResponse);
+        setContent(mergeContentWithFallback(contentResponse));
         setSchedule(scheduleResponse);
         setServiceNotice(null);
       } catch (err) {
