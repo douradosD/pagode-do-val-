@@ -22,7 +22,7 @@ const defaultData = {
     musicalStyle: [],
     whatsappNumber: '5586999999999',
     instagramUrl: 'https://instagram.com/pagodedoval',
-    heroImage: '/pagode-cover.jpg',
+    heroImage: '/hero-capa-2026-05-23.jpeg',
     highlightNumbers: [],
     gallery: [],
     videos: [],
