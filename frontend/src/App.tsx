@@ -7,17 +7,6 @@ import { HomePage } from './pages/HomePage';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import type { BandContent, BookingPayload, BookingResponse, PublicSchedule } from './types';
 
-function LoadingScreen() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-[#080808] text-white">
-      <div className="text-center">
-        <div className="mx-auto h-14 w-14 animate-spin rounded-full border-4 border-amber-300/20 border-t-amber-300" />
-        <p className="mt-6 text-sm uppercase tracking-[0.3em] text-amber-300">Carregando Pagode do Val</p>
-      </div>
-    </div>
-  );
-}
-
 function AppRoutes({
   content,
   schedule,
@@ -54,8 +43,8 @@ function AppRoutes({
 }
 
 export default function App() {
-  const [content, setContent] = useState<BandContent | null>(null);
-  const [schedule, setSchedule] = useState<PublicSchedule | null>(null);
+  const [content, setContent] = useState<BandContent>(fallbackContent);
+  const [schedule, setSchedule] = useState<PublicSchedule>(fallbackSchedule);
   const [serviceNotice, setServiceNotice] = useState<string | null>(null);
 
   useEffect(() => {
@@ -92,8 +81,6 @@ export default function App() {
     setServiceNotice(null);
     return response;
   }
-
-  if (!content || !schedule) return <LoadingScreen />;
 
   return (
     <AppRoutes
